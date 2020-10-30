@@ -23,36 +23,4 @@ for i in dirs_path:
         else:
             c+=1 
 print(c)#Final file count
-# if(b[8]=='manual_filtered'):
-#     print(s1,s2,c)   
-    #print(b)
-#print(dirs_path)
 
-
-# for base, dirs, files in os.walk(path):
-#     print('Looking in : ',base)
-#     for direc in dirs:
-#         if(direc=='sunglass'):
-# 	        print('ya')
-#     for Files in files:
-#         print(Files)
-
-
-# def fileCount(folder):
-   
-
-#     count = 0
-
-#     for filename in os.listdir(folder):
-#         path = os.path.join(folder, filename)
-
-#         if os.path.isfile(path):
-#             count += 1
-#         elif os.path.isfolder(path):
-#             print('d')
-#             count += fileCount(path)
-
-#     return count
-
-#c=fileCount(dirs)
-#print(c)
