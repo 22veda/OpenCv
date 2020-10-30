@@ -1,4 +1,4 @@
-# OpenCv
+# OpenCV
 This repo contains python scripts that can simplify your work when dealing with face recognition projects!
 
 ## Python Scripts
