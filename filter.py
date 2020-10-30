@@ -2,7 +2,7 @@ import cv2
 import os
 from imutils import paths
 import numpy as np
-from Detection import Detection
+from Detection import Detection#import your detection model
 import shutil
 
 def max_box(bbox):
@@ -18,12 +18,12 @@ def max_box(bbox):
             max_box = i
     return bbox[max_box]
 
-dec = Detection("../models/Detection_mtcnn.pb")
-actor = input()
-base_path = "/home/veda/Desktop/Eximius/face_recognition/Data_Extractor-20200926T050148Z-001/Extracted_Data/base_images/"+str(actor)+"/front_view_face_image"
+dec = Detection("../models/Detection_mtcnn.pb")#path of your detection model
+actor = input()#Name of the person's folder you want to filter
+base_path = "PATH_OF_THE_BASE_IMAGE"
 base_img = cv2.imread(list(paths.list_images(base_path))[0])
 # print(list(paths.list_images(base_path)))
-search_path = ["/home/veda/Desktop/Eximius/face_recognition/Extraction_Filter-20200928T060128Z-001/Extracted_Data_New/Deleted_Images/"+str(actor),"/home/veda/Desktop/Eximius/face_recognition/Extraction_Filter-20200928T060128Z-001/Extracted_Data_New/Filtered_Images/"+str(actor)]
+search_path = ["SEARCH_PATH"]
 
 filtered_move = []
 deleted_move = []
@@ -50,8 +50,8 @@ for k,search in enumerate(search_path):
             left = left-1
         i = search_paths[j]
         print(i)
-        first = i.split("/")[-2]
-        second = i.split("/")[-1]
+        first = i.split("/")[-2]#split only if you have more folders inside the main folder
+        second = i.split("/")[-1]#split only if you have more folders inside the main folder
         img = cv2.imread(i)
         try:
             img = cv2.resize(img,(400,400))
@@ -102,9 +102,9 @@ for x1 in range(len(filtered_move)):
     if filtered_move[x1][0] == 1:
         src = filtered_move[x1][1]
         dest = filtered_move[x1][2]
-        shutil.move(src,dest)
+        shutil.move(src,dest)#moves all the mismatched images to the destination folder
 for x2 in range(len(deleted_move)):
     if deleted_move[x2][0] == 1:
         src = deleted_move[x2][1]
         dest = deleted_move[x2][2]
-        shutil.move(src,dest)
+        shutil.move(src,dest)#moves all the valid images to the filtered folder
