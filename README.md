@@ -4,4 +4,4 @@ This repo contains python scripts that can simplify your work when dealing with 
 ## Python Scripts
 
 
-Folders.py: This script helps in retrieving the number of folders in your directories.
+folders.py: This script helps in retrieving the number of folders in your directories. You can store them in csv file by importing the csv module.
